@@ -369,9 +369,9 @@ class Extension extends CodeceptionExtension
      */
     public function formatTime($time)
     {
-        // TestRail doesn't support subsecond times
+        // In TestRail version 5.5 was added support of milliseconds
         if ($time < 1.0) {
-            return '0s';
+            return round($time, 2) .'s';
         }
 
         $formatted = '';
